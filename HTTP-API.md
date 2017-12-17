@@ -5,7 +5,7 @@
 >* 返回值 : JSON
 
 ## 登陆
->*  请求地址 : 
+* 请求地址 : 
 	* http://live.xingkong.us/?s=/index/user/login
 
 >*  请求方法 : 

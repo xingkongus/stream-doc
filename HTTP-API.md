@@ -7,8 +7,8 @@
 ## 登陆
 >*  url : http://live.xingkong.us/?s=/index/user/login
 >*  参数 :  
-	- username : 必需，用户名
-	- password : 必须，密码
+	 username : 必需，用户名
+	 password : 必须，密码
 
 ## 获取所有直播信息
 >* url : http://live.xingkong.us/?s=/index/user/apps

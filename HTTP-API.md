@@ -1,5 +1,5 @@
 # HttpAPI
- 星空直播HttpAPI
+ 星空直播API
 >* 源码项目 : stream-backend
 >* 使用协议 : HTTP
 >* 返回值 : JSON
@@ -8,220 +8,220 @@
 * 请求地址 : 
 	* http://live.xingkong.us/?s=/index/user/login
 
->*  请求方法 : 
-	- GET : 允许
-	- POST : 允许
+* 请求方法 : 
+	* GET : 允许
+	* POST : 允许
 
 
->*  参数 :  
-	- username : 用户名 （必需)
-	- password : 密码 （必需）
+* 参数 :  
+	* username : 用户名 （必需)
+	* password : 密码 （必需）
 
->* 返回值 : 
-	- status : 状态码
-		+ 200 : 成功
-		+ 100 : 失败
-	- msg : 回调信息
+* 返回值 : 
+	* status : 状态码
+		* 200 : 成功
+		* 100 : 失败
+	* msg : 回调信息
 
->* 示例 : 
-	- url : http://live.xingkong.us/?s=/index/user/login&username=hansin&password=845612500
-	- 以用户hansin，密码845612500登陆。
+* 示例 : 
+	* url : http://live.xingkong.us/?s=/index/user/login&username=hansin&password=845612500
+	* 以用户hansin，密码845612500登陆。
 
->* Tips
-	- 登陆成功后将在Cookie中设置状态信息PHPSession，之后所有需要权限的操作都需要此Cookie。
+* Tips
+	>* 登陆成功后将在Cookie中设置状态信息PHPSession，之后所有需要权限的操作都需要此Cookie。
 
 
 ## 注册
->*  请求地址 : 
-	- http://live.xingkong.us/?s=/index/user/signin
+* 请求地址 : 
+	* http://live.xingkong.us/?s=/index/user/signin
 
->*  请求方法 : 
-	- GET : 允许
-	- POST : 允许
+* 请求方法 : 
+	* GET : 允许
+	* POST : 允许
 
->*  参数 :  
-	- nickname : 用户昵称 
-	- username : 用户名 （必需)
-	- password : 密码 （必需）
+* 参数 :  
+	* nickname : 用户昵称 
+	* username : 用户名 （必需)
+	* password : 密码 （必需）
 
->* 返回值 : 
-	- status : 状态码
-		+ 200 : 成功
-		+ 100 : 失败
-	- msg : 回调信息
+* 返回值 : 
+	* status : 状态码
+		* 200 : 成功
+		* 100 : 失败
+	* msg : 回调信息
 
->* 示例 : 
-	- url : http://live.xingkong.us/?s=/index/user/signin&username=test01&password=123456&nickname=Test01
-	-  注册用户test01，密码123456，昵称Test01。
+* 示例 : 
+	* url : http://live.xingkong.us/?s=/index/user/signin&username=test01&password=123456&nickname=Test01
+	* 注册用户test01，密码123456，昵称Test01。
 
->* Tips
-	- 用户名和密码长度必须6个字符以上，包括6个。
-	- username用户名为唯一值，若已存在则不再注册。
+* Tips
+	>* 用户名和密码长度必须6个字符以上，包括6个。
+	>* username用户名为唯一值，若已存在则不再注册。
 
 ## 获取所有直播信息
->* 请求地址 :
-	- http://live.xingkong.us/?s=/index/user/apps
+* 请求地址 :
+	* http://live.xingkong.us/?s=/index/user/apps
 
->*  请求方法 : 
-	- GET : 允许
-	- POST : 允许
+* 请求方法 : 
+	* GET : 允许
+	* POST : 允许
 
->*  参数 :  
-	- 无
+* 参数 :  
+	* 无
 
->* 返回值 : 
-	- status : 状态码
-		+ 200 : 成功
-		+ 其他 : 失败
-	- src :
-		- 网页观看url半部分
-	- apps : 直播信息数组
-		+ title : 直播标题
-		+ maintext : 直播描述
-		+ appname : 直播唯一标志名
-		+ alive : 是否正在直播
-		+ user : 该直播创建者的昵称
-		+ username : 该直播创建者的用户名
+* 返回值 : 
+	* status : 状态码
+		* 200 : 成功
+		* 其他 : 失败
+	* src :
+		* 网页观看url半部分
+	* apps : 直播信息数组
+		* title : 直播标题
+		* maintext : 直播描述
+		* appname : 直播唯一标志名
+		* alive : 是否正在直播
+		* user : 该直播创建者的昵称
+		* username : 该直播创建者的用户名
 
->* 示例 : 
-	- url : http://live.xingkong.us/?s=/index/user/apps
-	-  所有直播信息数据
+* 示例 : 
+	* url : http://live.xingkong.us/?s=/index/user/apps
+	* 所有直播信息数据
 
->* Tips
-	- 该API适用于首页等场景。
+* Tips
+	>* 该API适用于首页等场景。
 
 
 ## 获取当前登陆用户创建的所有直播信息
->* 请求地址 :
-	- http://live.xingkong.us/?s=/index/user/apps
+* 请求地址 :
+	* http://live.xingkong.us/?s=/index/user/apps
 
->*  请求方法 : 
-	- GET : 允许
-	- POST : 允许
+* 请求方法 : 
+	* GET : 允许
+	* POST : 允许
 
->*  参数 :  
-	- q : 此值固定为1 （必需)
+* 参数 :  
+	* q : 此值固定为1 （必需)
 
->* 返回值 : 
-	- status : 状态码
-		+ 200 : 成功
-		+ 403 : 禁止，未登录
-		+ 其他 : 失败
-	- src :
-		- 网页观看url半部分
-	- apps : 直播信息数组
-		+ title : 直播标题
-		+ maintext : 直播描述
-		+ appname : 直播唯一标志名
-		+ alive : 是否正在直播
-		+ token  : 该直播的token，用于直播推流验证
+* 返回值 : 
+	* status : 状态码
+		* 200 : 成功
+		* 403 : 禁止，未登录
+		* 其他 : 失败
+	* src :
+		* 网页观看url半部分
+	* apps : 直播信息数组
+		* title : 直播标题
+		* maintext : 直播描述
+		* appname : 直播唯一标志名
+		* alive : 是否正在直播
+		* token  : 该直播的token，用于直播推流验证
 
->* 示例 : 
-	- url : http://live.xingkong.us/?s=/index/user/apps&q=1
-	-  获取当前登陆用户的所有直播信息
+* 示例 : 
+	* url : http://live.xingkong.us/?s=/index/user/apps&q=1
+	* 获取当前登陆用户的所有直播信息
 
->* Tips
-	- 此API必须处于登陆状态才可调用，Web前端需在允许Cookie的情况下(先调用登陆接口)方可正常使用。
-	- 安卓等移动端在登陆后，或初始化后保存Cooki，调用此API时将Cookie放进HTTP的Header中方可正常使用。
-	- 该API适用于直播管理场景。
-	- 获取到token后，可拼凑直播推流地址。公式为: rtmp://live.xingkong.us/hls/[该直播appname]?token=[该直播token]。
+* Tips
+	>* 此API必须处于登陆状态才可调用，Web前端需在允许Cookie的情况下(先调用登陆接口)方可正常使用。
+	>* 安卓等移动端在登陆后，或初始化后保存Cooki，调用此API时将Cookie放进HTTP的Header中方可正常使用。
+	>* 该API适用于直播管理场景。
+	>* 获取到token后，可拼凑直播推流地址。公式为: rtmp://live.xingkong.us/hls/[该直播appname]?token=[该直播token]。
 
 ## 获取单个直播信息
->* 请求地址 :
-	- http://live.xingkong.us/?s=/index/user/app
+* 请求地址 :
+	* http://live.xingkong.us/?s=/index/user/app
 
->*  请求方法 : 
-	- GET : 允许
-	- POST : 允许
+* 请求方法 : 
+	* GET : 允许
+	* POST : 允许
 
->*  参数 :  
-	- app : 直播唯一标志名 （必需)
+* 参数 :  
+	* app : 直播唯一标志名 （必需)
 
->* 返回值 : 
-	- status : 状态码
-		+ 101 : 失败，app参数为空
-		+ 200 : 成功，获取直播基本信息以及直播推流token
-		+ 403 : 禁止，但仍能获取该直播基本信息(appname,title,maintext)
-		+ 404 : 未找到该直播，该直播不存在。
-		+ 其他 : 失败
-	- msg :
-		- 回调信息
-	- result  : 直播信息
-		+ title : 直播标题
-		+ maintext : 直播描述
-		+ appname : 直播唯一标志名
-		+ token  : 该直播的token，用于直播推流验证。（当前为登陆状态且登陆用户为该直播创建者时才返回此值）
-	- alive : 是否正在直播
-	- src : 该直播的网页完整观看地址
+* 返回值 : 
+	* status : 状态码
+		* 101 : 失败，app参数为空
+		* 200 : 成功，获取直播基本信息以及直播推流token
+		* 403 : 禁止，但仍能获取该直播基本信息(appname,title,maintext)
+		* 404 : 未找到该直播，该直播不存在。
+		* 其他 : 失败
+	* msg :
+		* 回调信息
+	* result  : 直播信息
+		* title : 直播标题
+		* maintext : 直播描述
+		* appname : 直播唯一标志名
+		* token  : 该直播的token，用于直播推流验证。（当前为登陆状态且登陆用户为该直播创建者时才返回此值）
+	* alive : 是否正在直播
+	* src : 该直播的网页完整观看地址
 
->* 示例 : 
-	- url : http://live.xingkong.us/?s=/index/user/app&app=test
-	-  获取直播名为test的直播信息
+* 示例 : 
+	* url : http://live.xingkong.us/?s=/index/user/app&app=test
+	* 获取直播名为test的直播信息
 
->* Tips
-	- 已登陆时，调用本API可获得该直播的所有信息，status返回200。
-	- 未登录时，调用本API无法获得该直播token，只能获得直播基本信息，status返回403。
+* Tips
+	>* 已登陆时，调用本API可获得该直播的所有信息，status返回200。
+	>* 未登录时，调用本API无法获得该直播token，只能获得直播基本信息，status返回403。
 
 ## 创建一个直播
->* 请求地址 :
-	- http://live.xingkong.us/?s=/index/user/createapp
+* 请求地址 :
+	* http://live.xingkong.us/?s=/index/user/createapp
 
->*  请求方法 : 
-	- GET : 允许
-	- POST : 允许
+* 请求方法 : 
+	* GET : 允许
+	* POST : 允许
 
->*  参数 :  
-	- appname : 直播唯一标志名 （必需)
-	- apptitle : 直播标题（必需)
-	- maintext : 新的直播描述（必需)
+* 参数 :  
+	* appname : 直播唯一标志名 （必需)
+	* apptitle : 直播标题（必需)
+	* maintext : 新的直播描述（必需)
 
->* 返回值 : 
-	- status : 状态码
-		+ 100 : 失败，该直播名已存在
-		+ 101 : 失败，某参数为空
-		+ 200 : 成功，成功创建直播
-		+ 其他 : 失败
-	- msg :
-		- 回调信息
+* 返回值 : 
+	* status : 状态码
+		* 100 : 失败，该直播名已存在
+		* 101 : 失败，某参数为空
+		* 200 : 成功，成功创建直播
+		* 其他 : 失败
+	* msg :
+		* 回调信息
 
->* 示例 : 
-	- url : http://live.xingkong.us/?s=/index/user/createapp&app=test01&title=test01&maintext=test01
-	-  创建名为test01，标题为"test01"，描述为"test01"的直播。
+* 示例 : 
+	* url : http://live.xingkong.us/?s=/index/user/createapp&app=test01&title=test01&maintext=test01
+	* 创建名为test01，标题为"test01"，描述为"test01"的直播。
 
->* Tips
-	- 此API必须处于登陆状态才可调用，Web前端需在允许Cookie的情况下(先调用登陆接口)方可正常使用。
-	- 安卓等移动端在登陆后，或初始化后保存Cooki，调用此API时将Cookie放进HTTP的Header中方可正常使用。
+* Tips
+	>* 此API必须处于登陆状态才可调用，Web前端需在允许Cookie的情况下(先调用登陆接口)方可正常使用。
+	>* 安卓等移动端在登陆后，或初始化后保存Cooki，调用此API时将Cookie放进HTTP的Header中方可正常使用。
 
 ## 更新一个直播的信息
->* 请求地址 :
-	- http://live.xingkong.us/?s=/index/user/appupdate
+* 请求地址 :
+	* http://live.xingkong.us/?s=/index/user/appupdate
 
->*  请求方法 : 
-	- GET : 允许
-	- POST : 允许
+* 请求方法 : 
+	* GET : 允许
+	* POST : 允许
 
->*  参数 :  
-	- app : 直播唯一标志名 （必需)
-	- title : 新的直播标题 (参数为空则不更改)
-	- maintext : 新的直播描述 (参数为空则不更改)
+* 参数 :  
+	* app : 直播唯一标志名 （必需)
+	* title : 新的直播标题 (参数为空则不更改)
+	* maintext : 新的直播描述 (参数为空则不更改)
 
->* 返回值 : 
-	- status : 状态码
-		+ 101 : 失败，app参数为空
-		+ 200 : 成功，成功更改该直播的信息
-		+ 403 : 禁止，未登录
-		+ 404 : 未找到该直播，该直播不存在或者该直播非当前登陆用户所创建。
-		+ 其他 : 失败
-	- msg :
-		- 回调信息
+* 返回值 : 
+	* status : 状态码
+		* 101 : 失败，app参数为空
+		* 200 : 成功，成功更改该直播的信息
+		* 403 : 禁止，未登录
+		* 404 : 未找到该直播，该直播不存在或者该直播非当前登陆用户所创建。
+		* 其他 : 失败
+	* msg :
+		* 回调信息
 
->* 示例 : 
-	- url : http://live.xingkong.us/?s=/index/user/appupdate&app=test&title=HelloXingkongStream
-	-  更改直播名为test的标题为"HelloXingkongStream"
+* 示例 : 
+	* url : http://live.xingkong.us/?s=/index/user/appupdate&app=test&title=HelloXingkongStream
+	* 更改直播名为test的标题为"HelloXingkongStream"
 
->* Tips
-	- 此API必须处于登陆状态才可调用，Web前端需在允许Cookie的情况下(先调用登陆接口)方可正常使用。
-	- 安卓等移动端在登陆后，或初始化后保存Cooki，调用此API时将Cookie放进HTTP的Header中方可正常使用。
+* Tips
+	>* 此API必须处于登陆状态才可调用，Web前端需在允许Cookie的情况下(先调用登陆接口)方可正常使用。
+	>* 安卓等移动端在登陆后，或初始化后保存Cooki，调用此API时将Cookie放进HTTP的Header中方可正常使用。
 
 
 

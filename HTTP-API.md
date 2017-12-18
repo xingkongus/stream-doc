@@ -178,14 +178,14 @@
 * 返回值 : 
 	* status : 状态码
 		* 100 : 失败，该直播名已存在
-		* 101 : 失败，某参数为空
+		* 101 : 失败，某参数为空或者尚未登陆
 		* 200 : 成功，成功创建直播
 		* 其他 : 失败
 	* msg :
 		* 回调信息
 
 * 示例 : 
-	* url : http://live.xingkong.us/?s=/index/user/createapp&app=test01&title=test01&maintext=test01
+	* url : http://live.xingkong.us/?s=/index/user/createapp&appname=test01&apptitle=test01&maintext=test01
 	* 创建名为test01，标题为"test01"，描述为"test01"的直播。
 
 * Tips

@@ -1,5 +1,5 @@
 # HttpAPI
- 星空直播API
+ 星空直播API文档
 >* 源码项目 : stream-backend
 >* 使用协议 : HTTP
 >* 返回值 : JSON
@@ -122,11 +122,11 @@
 
 * Tips
 	>* 此API必须处于登陆状态才可调用，Web前端需在允许Cookie的情况下(先调用登陆接口)方可正常使用。
-	>* 安卓等移动端在登陆后，或初始化后保存Cooki，调用此API时将Cookie放进HTTP的Header中方可正常使用。
+	>* 安卓等移动端在登陆后，或初始化后保存Cookie，调用此API时将Cookie放进HTTP的Header中方可正常使用。
 	>* 该API适用于直播管理场景。
 	>* 获取到token后，可拼凑直播推流地址。公式为: rtmp://live.xingkong.us/hls/[该直播appname]?token=[该直播token]。
 
-## 获取单个直播信息
+## 获取一个直播信息
 * 请求地址 :
 	* http://live.xingkong.us/?s=/index/user/app
 
@@ -173,7 +173,7 @@
 * 参数 :  
 	* appname : 直播唯一标志名 （必需)
 	* apptitle : 直播标题（必需)
-	* maintext : 新的直播描述（必需)
+	* maintext : 直播描述（必需)
 
 * 返回值 : 
 	* status : 状态码
@@ -190,7 +190,7 @@
 
 * Tips
 	>* 此API必须处于登陆状态才可调用，Web前端需在允许Cookie的情况下(先调用登陆接口)方可正常使用。
-	>* 安卓等移动端在登陆后，或初始化后保存Cooki，调用此API时将Cookie放进HTTP的Header中方可正常使用。
+	>* 安卓等移动端在登陆后，或初始化后保存Cookie，调用此API时将Cookie放进HTTP的Header中方可正常使用。
 
 ## 更新一个直播的信息
 * 请求地址 :
@@ -221,11 +221,78 @@
 
 * Tips
 	>* 此API必须处于登陆状态才可调用，Web前端需在允许Cookie的情况下(先调用登陆接口)方可正常使用。
+	>* 安卓等移动端在登陆后，或初始化后保存Cookie，调用此API时将Cookie放进HTTP的Header中方可正常使用。
+
+
+## 创建一个直播组
+* 请求地址 :
+	* http://live.xingkong.us/?s=/index/user/creategroup
+
+* 请求方法 : 
+	* GET : 允许
+	* POST : 允许
+
+* 参数 :  
+	* name : 直播组唯一标志名 （必需)
+	* title : 直播组标题（必需)
+	* maintext : 直播组描述（必需)
+	* apps : 直播唯一标识名数组（必需)
+	
+* 返回值 : 
+	* status : 状态码
+		* 100 : 失败，该直播组名已存在
+		* 101 : 失败，某参数为空或者尚未登陆
+		* 200 : 成功，成功创建直播组
+		* 其他 : 失败
+	* msg :
+		* 回调信息
+
+* 示例 : 
+	* url : http://live.xingkong.us/?s=/index/user/creategroup&name=group01&title=Group01&maintext=ThisIsMyFirstStreamGroup&apps=["test01","test02"]
+	* 创建名为group01，标题为"Group01"，描述为"ThisIsMyFirstStreamGroup"的直播组，组里的直播有:test01,test02。
+
+* Tips
+	>* 此API必须处于登陆状态才可调用，Web前端需在允许Cookie的情况下(先调用登陆接口)方可正常使用。
 	>* 安卓等移动端在登陆后，或初始化后保存Cooki，调用此API时将Cookie放进HTTP的Header中方可正常使用。
+	>* 建议用POST方式
 
+	
+## 获取一个直播组信息
+* 请求地址 :
+	* http://live.xingkong.us/?s=/index/user/group
 
+* 请求方法 : 
+	* GET : 允许
+	* POST : 允许
 
+* 参数 :  
+	* group : 直播组唯一标志名 （必需)
 
+* 返回值 : 
+	* status : 状态码
+		* 101 : 失败，group参数为空
+		* 200 : 成功，获取直播组基本信息以及每个直播推流token
+		* 403 : 禁止，但仍能获取该直播组基本信息(name,title,maintext,apps)
+		* 404 : 未找到该直播组，该直播组不存在。
+		* 其他 : 失败
+	* msg :
+		* 回调信息
+	* apps  : 直播信息数组
+		* title : 直播标题
+		* maintext : 直播描述
+		* appname : 直播唯一标志名
+		* token : 该直播的token，用于直播推流验证。（当前为登陆状态且登陆用户为该直播创建者时才返回此值）
+		* alive : 是否正在直播
+		* src : 该直播的网页完整观看地址
+
+* 示例 : 
+	* url : http://live.xingkong.us/?s=/index/user/group&group=hiphop
+	* 获取直播组名为hiphop的直播信息
+
+* Tips
+	>* 已登陆时，调用本API可获得该直播组的所有信息，status返回200。
+	>* 未登录时，调用本API无法获得该直播组内的直播的token，只能获得直播基本信息，status返回403。
+	
 *最后编辑 : Hansin1997@845612500@qq.com*
 
 

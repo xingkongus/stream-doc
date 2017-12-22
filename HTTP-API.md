@@ -4,6 +4,9 @@
 >* 使用协议 : HTTP
 >* 返回值 : JSON
 
+目录
+* 用户
+
 ## 登陆
 * 请求地址 : 
 	* http://live.xingkong.us/?s=/index/user/login
@@ -57,6 +60,64 @@
 * Tips
 	>* 用户名和密码长度必须6个字符以上，包括6个。
 	>* username用户名为唯一值，若已存在则不再注册。
+
+
+## 检查登陆状态
+* 请求地址 : 
+	* http://live.xingkong.us/?s=/index/user/user
+
+* 请求方法 : 
+	* GET : 允许
+	* POST : 允许
+
+* 参数 :  
+	* 无
+
+* 返回值 : 
+	* status : 状态码
+		* 200 : 已登陆
+		* 403 : 未登录
+	* msg : 回调信息
+	* userinfo : 用户信息
+		* username : 用户名
+		* nickname : 昵称
+
+* 示例 : 
+	* url : http://live.xingkong.us/?s=/index/user/user
+	* 检查当前登陆状态
+
+* Tips
+	>* 此API必须处于登陆状态才可调用，Web前端需在允许Cookie的情况下(先调用登陆接口)方可正常使用。
+	>* 安卓等移动端在登陆后，或初始化后保存Cookie，调用此API时将Cookie放进HTTP的Header中方可正常使用。
+	
+	
+## 获取某个用户信息
+* 请求地址 : 
+	* http://live.xingkong.us/?s=/index/user/user
+
+* 请求方法 : 
+	* GET : 允许
+	* POST : 允许
+
+* 参数 :  
+	* username : 要获取的用户的用户名
+
+* 返回值 : 
+	* status : 状态码
+		* 200 : 成功
+		* 404 : 失败，没有该用户
+	* msg : 回调信息
+	* userinfo : 用户信息
+		* username : 用户名
+		* nickname : 昵称
+
+* 示例 : 
+	* url : http://live.xingkong.us/?s=/index/user/user&username=hansin
+	* 获取用户名为"hansin"的用户信息
+
+* Tips
+	>* 当status值为404是，userinfo值为空。
+
 
 ## 获取所有直播信息
 * 请求地址 :
